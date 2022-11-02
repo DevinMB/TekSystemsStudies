@@ -1,5 +1,6 @@
 package jpa.mainrunner;
 
+import jpa.dao.StudentDAO;
 import jpa.entitymodels.Course;
 import jpa.entitymodels.Student;
 import jpa.service.CourseService;
@@ -41,6 +42,7 @@ public class SMSRunner {
         switch (menu1()) {
             case 1:
                 if (studentLogin()) {
+                   //TODO: WHY IS THIS GOING TO REGISTER IF LOGIN IS SUCCESS????
                     registerMenu();
                 }
                 break;
@@ -68,23 +70,10 @@ public class SMSRunner {
         out.print("Enter your password: ");
         String password = sin.next();
 
-        //TODO: modify this so that when login is called it verify's user is in db, then pulls user from db. Lot of weird code here.
-        List<Student> students = studentService.getAllStudents();
-        if (students != null) {
-            currentStudent = students.get(0);
-        }
+        //VALIDATE
+        StudentService studentService = new StudentService();
+        return studentService.validateStudent(email,password);
 
-        if (currentStudent != null & currentStudent.getSPass().equals(password)) {
-            List<Course> courses = studentService.getStudentCourses(email);
-            out.println("MyClasses");
-            for (Course course : courses) {
-                out.println(course);
-            }
-            retValue = true;
-        } else {
-            out.println("User Validation failed. GoodBye!");
-        }
-        return retValue;
     }
 
     private void registerMenu() {

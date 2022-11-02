@@ -39,6 +39,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\main\resources" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\test\resources" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.SMSRunner">
     <configuration name="SMSRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -84,16 +87,5 @@
       <updated>1667413993741</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/jpa/mainrunner/SMSRunner.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

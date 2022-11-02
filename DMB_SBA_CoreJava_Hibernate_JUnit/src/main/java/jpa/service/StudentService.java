@@ -8,11 +8,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class StudentService implements StudentDAO {
-    //TODO finish all methods
 
     @Override
     public Student getStudentByEmail(String email) {
@@ -81,7 +81,27 @@ public class StudentService implements StudentDAO {
 
     @Override
     public void registerStudentToCourse(String sEmail, int cId) {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+        Transaction t = session.beginTransaction();
 
+        Student s = getStudentByEmail(sEmail);
+
+        CourseService courseService = new CourseService();
+        Course c = courseService.getCourseById(cId);
+
+        List<Course> studentCourses = s.getSCourses();
+
+        studentCourses.add(c);
+
+        s.setSCourses(studentCourses);
+
+        session.merge(s);
+
+
+        t.commit();
+        factory.close();
+        session.close();
 
     }
 
