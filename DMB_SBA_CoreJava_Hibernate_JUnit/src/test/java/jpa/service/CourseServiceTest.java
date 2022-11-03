@@ -8,8 +8,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.util.List;
 
 public class CourseServiceTest {
-//TODO:FillOutCSVFILESOURCE
-
 
     @ParameterizedTest()
     @CsvFileSource(resources = {"/testdata/course.csv"},delimiter = ',',numLinesToSkip = 1)

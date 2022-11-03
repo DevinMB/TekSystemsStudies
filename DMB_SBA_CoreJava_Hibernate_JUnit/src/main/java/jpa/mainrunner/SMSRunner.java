@@ -6,13 +6,14 @@ import jpa.entitymodels.Student;
 import jpa.service.CourseService;
 import jpa.service.StudentService;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class SMSRunner {
-
+    //TODO: Add input error handling!
 
     private Scanner sin;
     private StringBuilder sb;
@@ -44,21 +45,40 @@ public class SMSRunner {
                 if (studentLogin()) {
                     showCurrentUserClasses();
                     registerAClassMenu();
+                }else{
+                    out.println("No user found with these credentials, try again...");
+                    run();
+                    break;
                 }
                 break;
             case 2:
                 out.println("Goodbye!");
                 break;
+            case 3:
+                out.println("\nSay what?? Try again. ");
+                run();
+                break;
             default:
+                out.println("\nSay what?? Try again.");
+                run();
+                break;
         }
     }
 
     private int menu1() {
-        sb.append("\n1.Student Login\n2. Quit Application\nPlease Enter Selection: ");
+        sb.append("\n1. Student Login\n2. Quit Application\nPlease Enter Selection: ");
         out.print(sb.toString());
         sb.delete(0, sb.length());
+        int input = 0;
+        try{
+            input = sin.nextInt();
+        }catch (InputMismatchException e){
+            sin.next();
+            return 3;
+        }
 
-        return sin.nextInt();
+        return input;
+
     }
 
     private void showCurrentUserClasses() {
@@ -74,7 +94,7 @@ public class SMSRunner {
 
     private boolean studentLogin() {
         boolean retValue = false;
-        out.print("Enter your email address: ");
+        out.print("\nEnter your email address: ");
         String email = sin.next();
         out.print("Enter your password: ");
         String password = sin.next();
@@ -90,7 +110,7 @@ public class SMSRunner {
     }
 
     private void registerAClassMenu() {
-        sb.append("\n1.Register a class\n2. Logout\nPlease Enter Selection: ");
+        sb.append("\n1. Register a class\n2. Logout\nPlease Enter Selection: ");
         out.print(sb.toString());
         sb.delete(0, sb.length());
 
@@ -99,31 +119,41 @@ public class SMSRunner {
                 List<Course> allCourses = courseService.getAllCourses();
                 List<Course> studentCourses = studentService.getStudentCourses(currentStudent.getSEmail());
                 allCourses.removeAll(studentCourses);
+                out.println("Available Courses: ");
                 out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
                 for (Course course : allCourses) {
                     out.println(course.toString());
                 }
+
+
                 out.println();
                 out.print("Enter Course Number: ");
                 int number = sin.nextInt();
                 Course newCourse = courseService.getCourseById(number);
 
                 if (newCourse != null) {
-                    studentService.registerStudentToCourse(currentStudent.getSEmail(), newCourse.getCId());
-                    Student temp = studentService.getStudentByEmail(currentStudent.getSEmail());
+                    if(!studentCourses.contains(newCourse)) {
+                        studentService.registerStudentToCourse(currentStudent.getSEmail(), newCourse.getCId());
 
-                    StudentService scService = new StudentService();
-                    List<Course> sCourses = scService.getStudentCourses(temp.getSEmail());
+                        Student temp = studentService.getStudentByEmail(currentStudent.getSEmail());
+
+                        StudentService scService = new StudentService();
+                        List<Course> sCourses = scService.getStudentCourses(temp.getSEmail());
 
 
-                    out.println("MyClasses");
-                    out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
-                    out.println("----------------------------------------------------------------------------");
-                    for (Course course : sCourses) {
-                        out.println(course);
+                        out.println("MyClasses");
+                        out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
+                        out.println("----------------------------------------------------------------------------");
+                        for (Course course : sCourses) {
+                            out.println(course);
+                        }
+
+                        out.println("You have been signed out. Goodbye!");
+                    }else{
+                        out.println("You are already registered in that course!");
+                        showCurrentUserClasses();
+                        registerAClassMenu();
                     }
-
-                    out.println("You have been signed out. Goodbye!");
                 }
                 break;
             case 2:
@@ -131,6 +161,4 @@ public class SMSRunner {
                 out.println("Goodbye!");
         }
     }
-
-
 }
