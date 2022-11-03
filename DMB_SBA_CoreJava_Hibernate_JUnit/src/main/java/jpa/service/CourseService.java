@@ -36,7 +36,7 @@ public class CourseService implements CourseDAO {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
-        String hql = "FROM Course c WHERE c.cId";
+        String hql = "FROM Course c WHERE c.cId = :id";
         TypedQuery<Course> query = session.createQuery(hql, Course.class);
         query.setParameter("id", id);
 

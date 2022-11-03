@@ -11,9 +11,15 @@ public class TestRun {
 
         StudentService studentService = new StudentService();
 
-        Student s = studentService.getStudentByEmail("devinmbutts@gmail.com");
+        Student s1 = studentService.getStudentByEmail("devinmbutts@gmail.com");
 
-        System.out.println(s.toString());
+        System.out.println(s1.toString());
+
+//        studentService.registerStudentToCourse("devinmbutts@gmail.com",1);
+//
+//        Student s2 = studentService.getStudentByEmail("devinmbutts@gmail.com");
+//
+//        System.out.println(s2.toString());
 
     }
 

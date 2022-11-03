@@ -40,6 +40,9 @@
       <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\main\resources\testdata" />
+      <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\main\resources" />
+      <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\test\java\jpa\service" />
       <recent name="C:\Users\Devin.Butts\Documents\Programming\TekSystemsStudies\DMB_SBA_CoreJava_Hibernate_JUnit\src\test\resources" />
     </key>
   </component>
@@ -70,10 +73,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StudentServiceTest.getAllStudentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DMB_SBA_CoreJava_Hibernate_JUnit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jpa.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jpa.service" />
+      <option name="MAIN_CLASS_NAME" value="jpa.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="getAllStudentsTest(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceTest.getStudentCoursesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DMB_SBA_CoreJava_Hibernate_JUnit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jpa.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jpa.service" />
+      <option name="MAIN_CLASS_NAME" value="jpa.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="getStudentCoursesTest(java.lang.String,java.lang.Integer)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceTest.validateStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DMB_SBA_CoreJava_Hibernate_JUnit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jpa.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jpa.service" />
+      <option name="MAIN_CLASS_NAME" value="jpa.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="validateStudentTest(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.SMSRunner" />
         <item itemvalue="Application.TestRun" />
+        <item itemvalue="JUnit.StudentServiceTest.getStudentCoursesTest" />
+        <item itemvalue="JUnit.StudentServiceTest.validateStudentTest" />
+        <item itemvalue="JUnit.StudentServiceTest.getAllStudentsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -87,5 +141,16 @@
       <updated>1667413993741</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/jpa/service/CourseService.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

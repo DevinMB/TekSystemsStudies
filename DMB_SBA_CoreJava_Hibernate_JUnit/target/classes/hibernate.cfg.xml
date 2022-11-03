@@ -18,12 +18,15 @@
         <!-- print all executed SQL on console -->
         <property name="hibernate.show_sql" >false </property>
         <property name="hibernate.format_sql" >false </property>
+        <property name="hibernate.generate_statistics">false</property>
 
         <!--   Mapping entity file -->
         <mapping class="jpa.entitymodels.Course"/>
         <mapping class="jpa.entitymodels.Student"/>
     </session-factory>
 </hibernate-configuration>
+
+
 
 
 

@@ -42,16 +42,14 @@ public class SMSRunner {
         switch (menu1()) {
             case 1:
                 if (studentLogin()) {
-                   //TODO: WHY IS THIS GOING TO REGISTER IF LOGIN IS SUCCESS????
-                    registerMenu();
+                    showCurrentUserClasses();
+                    registerAClassMenu();
                 }
                 break;
             case 2:
                 out.println("Goodbye!");
                 break;
-
             default:
-
         }
     }
 
@@ -63,6 +61,17 @@ public class SMSRunner {
         return sin.nextInt();
     }
 
+    private void showCurrentUserClasses() {
+        out.println("My Classes:\n");
+        out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
+        out.println("----------------------------------------------------------------------------");
+        //int count = 1;
+        for (Course c : currentStudent.getSCourses()) {
+            out.printf("%5s%32s%32s\n", c.getCId(), c.getCName(), c.getCInstructorName());
+            //count++;
+        }
+    }
+
     private boolean studentLogin() {
         boolean retValue = false;
         out.print("Enter your email address: ");
@@ -72,11 +81,15 @@ public class SMSRunner {
 
         //VALIDATE
         StudentService studentService = new StudentService();
-        return studentService.validateStudent(email,password);
-
+        if (studentService.validateStudent(email, password)) {
+            currentStudent = studentService.getStudentByEmail(email);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private void registerMenu() {
+    private void registerAClassMenu() {
         sb.append("\n1.Register a class\n2. Logout\nPlease Enter Selection: ");
         out.print(sb.toString());
         sb.delete(0, sb.length());
@@ -86,9 +99,9 @@ public class SMSRunner {
                 List<Course> allCourses = courseService.getAllCourses();
                 List<Course> studentCourses = studentService.getStudentCourses(currentStudent.getSEmail());
                 allCourses.removeAll(studentCourses);
-                out.printf("%5s%15S%15s\n", "ID", "Course", "Instructor");
+                out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
                 for (Course course : allCourses) {
-                    out.println(course);
+                    out.println(course.toString());
                 }
                 out.println();
                 out.print("Enter Course Number: ");
@@ -104,9 +117,13 @@ public class SMSRunner {
 
 
                     out.println("MyClasses");
+                    out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
+                    out.println("----------------------------------------------------------------------------");
                     for (Course course : sCourses) {
                         out.println(course);
                     }
+
+                    out.println("You have been signed out. Goodbye!");
                 }
                 break;
             case 2:
@@ -114,7 +131,6 @@ public class SMSRunner {
                 out.println("Goodbye!");
         }
     }
-
 
 
 }

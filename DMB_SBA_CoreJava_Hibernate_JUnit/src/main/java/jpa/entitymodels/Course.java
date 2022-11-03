@@ -1,5 +1,6 @@
 package jpa.entitymodels;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
+@EqualsAndHashCode
 @Table(name = "Course")
 public class Course {
 
@@ -20,7 +21,13 @@ public class Course {
     @Column(name = "instructor")
     private String cInstructorName;
 
-//  To Allow For BiDirectional
+    @Override
+    public String toString() {
+        return String.format("%5s%32s%32s", cId, cName, cInstructorName);
+    }
+
+
+    //  To Allow For BiDirectional
 //    @ManyToMany(mappedBy = "sCourses",fetch = FetchType.EAGER)
 //    private List<Student> students;
 

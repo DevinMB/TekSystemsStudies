@@ -96,8 +96,11 @@ public class StudentService implements StudentDAO {
 
         s.setSCourses(studentCourses);
 
-        session.merge(s);
-
+        try{
+            session.merge(s);
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
 
         t.commit();
         factory.close();
