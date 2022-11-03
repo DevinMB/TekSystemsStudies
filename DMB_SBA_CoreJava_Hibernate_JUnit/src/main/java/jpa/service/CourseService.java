@@ -2,7 +2,6 @@ package jpa.service;
 
 import jpa.dao.CourseDAO;
 import jpa.entitymodels.Course;
-import jpa.entitymodels.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

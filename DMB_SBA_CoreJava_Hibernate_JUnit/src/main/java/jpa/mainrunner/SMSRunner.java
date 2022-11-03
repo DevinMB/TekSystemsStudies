@@ -1,11 +1,9 @@
 package jpa.mainrunner;
 
-import jpa.dao.StudentDAO;
 import jpa.entitymodels.Course;
 import jpa.entitymodels.Student;
 import jpa.service.CourseService;
 import jpa.service.StudentService;
-
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -29,13 +27,11 @@ public class SMSRunner {
         studentService = new StudentService();
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
         SMSRunner sms = new SMSRunner();
         sms.run();
+
     }
 
     private void run() {
@@ -67,33 +63,28 @@ public class SMSRunner {
 
     private int menu1() {
         sb.append("\n1. Student Login\n2. Quit Application\nPlease Enter Selection: ");
-        out.print(sb.toString());
+        out.print(sb);
         sb.delete(0, sb.length());
-        int input = 0;
+        int input;
         try{
             input = sin.nextInt();
         }catch (InputMismatchException e){
             sin.next();
             return 3;
         }
-
         return input;
-
     }
 
     private void showCurrentUserClasses() {
         out.println("My Classes:\n");
         out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
         out.println("----------------------------------------------------------------------------");
-        //int count = 1;
         for (Course c : currentStudent.getSCourses()) {
             out.printf("%5s%32s%32s\n", c.getCId(), c.getCName(), c.getCInstructorName());
-            //count++;
         }
     }
 
     private boolean studentLogin() {
-        boolean retValue = false;
         out.print("\nEnter your email address: ");
         String email = sin.next();
         out.print("Enter your password: ");
@@ -111,7 +102,7 @@ public class SMSRunner {
 
     private void registerAClassMenu() {
         sb.append("\n1. Register a class\n2. Logout\nPlease Enter Selection: ");
-        out.print(sb.toString());
+        out.print(sb);
         sb.delete(0, sb.length());
 
         switch (sin.nextInt()) {
@@ -139,7 +130,6 @@ public class SMSRunner {
 
                         StudentService scService = new StudentService();
                         List<Course> sCourses = scService.getStudentCourses(temp.getSEmail());
-
 
                         out.println("MyClasses");
                         out.printf("%5s%32s%32s\n", "ID", "Course", "Instructor");
