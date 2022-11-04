@@ -36,6 +36,8 @@
 
  .screen p{
     transform: rotate(90deg);
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
  }
 
  .circle1{
