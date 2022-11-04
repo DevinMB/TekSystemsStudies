@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(56, 55, 55);
+    font-family: Helvetica;
+    color: rgb(238, 243, 247);
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+#profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-picture {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 0;
+    
+}
+
+#profile_picture_img{
+    display: flex;
+    width: 15em;
+    height: auto;
+    justify-content: center;
+    border-radius: 50%;
+    padding-top: 1em;
+}
+
+#profile_name{
+    display: flex;
+    flex-direction: column;
+}
+
+#name{
+    margin-bottom: 0.1em;
+    margin-left:.5em;
+    
+
+}
+
+#current_job_title{
+    margin-left:1em;
+}
+
+#profile_info{
+    display: flex;
+    justify-content: right;
+    
+}
+
+#profile_info li{
+    list-style-type: none;  
+    color: rgb(112, 112, 112);
+    align-items: right;
+    
+}
+
+#summary_description{
+    color:grey;
+}
+
+   #profile_info li:nth-child(1):before {
+    content: 'Name:';
+    color: rgb(249, 252, 252);
+  }#profile_info li:nth-child(2):before {
+    content: 'Date of Birth:';
+    color: rgb(249, 252, 252);
+  }#profile_info li:nth-child(3):before {
+    content: 'Address:';
+    color: rgb(249, 252, 252);
+  }#profile_info li:nth-child(4):before {
+    content: 'Phone:';
+    color: rgb(249, 252, 252);
+  }#profile_info li:nth-child(5):before {
+    content: 'Email:';
+    color: rgb(249, 252, 252);
+  }

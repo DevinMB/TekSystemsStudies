@@ -1,0 +1,73 @@
+
+-- 1 
+SELECT
+*
+FROM
+ORDERS o
+left join USERS u on u.USER_ID = o.USER_ID
+where 
+	u.FIRST_NAME like 'Marion';
+    
+-- 2
+SELECT
+	 u.USER_ID
+    ,u.FIRST_NAME
+    ,u.LAST_NAME
+    ,u.CITY
+FROM
+USERS u
+left join ORDERS o on o.USER_ID = u.USER_ID
+WHERE 
+o.ORDER_ID is null;
+
+-- 3
+SELECT 
+	 i.NAME
+    ,COUNT(*)
+FROM
+	ORDER_ITEMS oi
+	LEFT JOIN ITEMS i on i.ITEM_ID = oi.ITEM_ID
+GROUP BY I.NAME
+HAVING COUNT(*) >- 2;
+
+-- 4 
+SELECT
+	 oi.ORDER_ID
+    ,i.NAME
+    ,i.PRICE
+    ,oi.QUANTITY
+FROM
+ORDER_ITEMS oi
+LEFT JOIN ITEMS i on i.ITEM_ID = oi.ITEM_ID
+LEFT JOIN ORDERS o on oi.ORDER_ID = o.ORDER_ID
+LEFT JOIN STORES s on s.STORE_ID = o.STORE_ID
+WHERE s.CITY like 'New York'
+ORDER BY oi.ORDER_ID asc;
+
+-- 5 
+SELECT
+	 i.NAME
+     ,SUM(oi.QUANTITY * i.PRICE) AS Revenue
+FROM
+	ORDER_ITEMS oi
+    LEFT JOIN ITEMS i on i.ITEM_ID = oi.ITEM_ID
+GROUP BY 
+	oi.ITEM_ID;
+    
+-- 6 
+SELECT 
+   s.NAME
+  ,COUNT(o.STORE_ID) AS QuantityOrdered
+  ,CASE 
+	WHEN COUNT(o.STORE_ID) > 3 THEN 'High'
+    WHEN COUNT(o.STORE_ID) BETWEEN 2 AND 3 THEN 'Medium'
+    WHEN COUNT(o.STORE_ID) < 2 THEN 'Low' 
+    END AS Sales_Figure
+FROM 
+	ORDERS o
+	LEFT JOIN STORES s on s.STORE_ID = o.STORE_ID
+GROUP BY s.NAME
+ORDER BY COUNT(o.STORE_ID) DESC;
+
+
+    

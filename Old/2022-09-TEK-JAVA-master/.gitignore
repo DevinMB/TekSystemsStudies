@@ -1,0 +1,7 @@
+class-examples/.classpath
+class-examples/.project
+class-examples/.settings/
+class-examples/target/
+hibernate-demo/.factorypath
+hibernate-demo/.settings/
+hibernate-demo/target/
