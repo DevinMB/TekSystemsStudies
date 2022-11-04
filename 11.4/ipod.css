@@ -1,0 +1,60 @@
+.box{
+    width: 200px;
+    height: 300px;
+    background-color: red;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 10px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    transition-property: width height background-color font-size left top transform color;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+    box-shadow: inset -0px 0px 20px 10px rgba(0,0,0,.5);
+    
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+ }
+
+ .screen{
+    margin: 1em;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(65, 54, 54);
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+ }
+
+ .circle1{
+    margin-bottom: 1em;
+    width: 125px;
+    height: 125px;
+    background-color: rgb(65, 54, 54);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .circle2{
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50%;
+    
+ }
+
+ .screen:hover p{
+    transform: rotate(270deg);
+    position: absolute;
+    transition-property: width height background-color font size left top transform color;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+} 
