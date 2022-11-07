@@ -1,0 +1,44 @@
+.menu_container{
+    display: flex;
+    padding: 20px;
+    background-color: blue;
+    font-family: cursive;
+    font-weight: 300;
+    color: white;
+}
+
+.menu_container .menu+item nav ul{
+    display: flex;
+}
+
+.menu_container .menu_item nav ul li a {
+    color: white;
+    padding: 21px 37px;
+    border-radius:  3px;
+}
+
+.menu_container .menu_item ul li a:hover {
+    background-color: red;
+    color: orange;
+}
+
+.menu_item{
+    flex: 1;
+}
+
+.more{
+    flex: 2;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
