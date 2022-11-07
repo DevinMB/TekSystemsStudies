@@ -1,0 +1,48 @@
+html, body{
+    margin: 0;
+    padding: 0;
+
+    
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
+
+.menu_container{
+    display: flex;
+    padding: 20px;
+    background-color: rgb(214, 214, 223);
+    font-family: cursive;
+    font-weight: 300;
+    color: rgb(167, 26, 26);
+}
+
+.menu_container .menu+item nav ul{
+    display: flex;
+    background-color: red;
+}
+
+.menu_container .menu_item nav ul li a {
+    color: rgb(139, 49, 49);
+    padding: 21px 37px;
+    border-radius:  3px;
+}
+
+.menu_container .menu_item ul li a:hover {
+    background-color: red;
+    color: orange;
+}
+
+.menu_item{
+    flex: 1;
+}
+
+.more{
+    flex: 2;
+}
+
+
