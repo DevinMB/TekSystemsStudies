@@ -19,22 +19,35 @@ li{
     font-family: cursive;
     font-weight: 300;
     color: rgb(167, 26, 26);
+    border: 1px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
-.menu_container .menu+item nav ul{
+.menu_container .menu_item nav ul{
     display: flex;
     background-color: red;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .menu_container .menu_item nav ul li a {
     color: rgb(139, 49, 49);
     padding: 21px 37px;
     border-radius:  3px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .menu_container .menu_item ul li a:hover {
     background-color: red;
     color: orange;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .menu_item{
@@ -44,5 +57,43 @@ li{
 .more{
     flex: 2;
 }
+
+
+.flex_container{
+    width: 40%;
+    height: 500px;
+    margin: 100px auto;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: black;
+
+}
+
+
+.flex_item{
+    background-color: beige;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    font-size: 100px;
+
+}
+.flex_item_expanded{
+    background-color: bisque;
+    width: 500px;
+}
+
+.first_item{
+    order: 1;
+}
+.second-item{
+    order: 2;
+}
+
+.last-item{
+    order: -1;
+}
+
 
 
